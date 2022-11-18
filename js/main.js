@@ -1,56 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-	// const slider = document.querySelector('.main-slider__slides')
-// const slidesCount = slider.querySelectorAll('img').length
-// const slides = document.querySelectorAll('.main-slider__slides-img')
-// const btnLeft = document.querySelector('.main-slider__content-btn--left')
-// const btnRight = document.querySelector('.main-slider__content-btn--right')
-// const slideIndicator = document.querySelectorAll('.main-slider__bottom-slides_indicator')
 
+	const mainSlides = document.querySelectorAll('[data-main-slide]')
+	const mainBtns = document.querySelectorAll('[data-main-btn]')
 
-// slides.forEach((slide, index) => {
-	
-// 	slide.dataset.index = index
-	
-// 	slides[0].setAttribute('data-active', '')
-// })
+	function activeStartSlide(index = 0) {
+		mainSlidesAddingHidden('hidden')
+		mainSlides[index].classList.remove('hidden')
+	}
+	activeStartSlide()
 
-// // Кнопки Влево и Вправо
-// btnLeft.addEventListener('click', function() {
-// 	changeSlide('prev')
-// })
+	function mainSlidesAddingHidden(yourclass) {
+		mainSlides.forEach((slide) => {
+			slide.classList.add(`${yourclass}`)
+		})
+	}
 
-// btnRight.onclick =  function() {
-// 	changeSlide('next')
-// }
-
-// // Смена слайда в зависимости от направления
-// function changeSlide(direction) {
-// 	// Находим текущий слайд
-// 	const currentSlide = slider.querySelector('[data-active]')
-// 	const currentSlideIndex = +currentSlide.dataset.index
-// 	// Скрываем текущий слайд
-// 	currentSlide.classList.add('hidden')
-// 	currentSlide.removeAttribute('data-active')
-
-// 	// Находим следующий слайд в зависимости от нажатой кнопки
-// 	let nextSlideIndex
-// 	if (direction === 'next') {
-// 		nextSlideIndex = currentSlideIndex + 1 === slides.length ? 0 : currentSlideIndex + 1
-// 	}
-// 	if (direction === 'prev') {
-// 		nextSlideIndex = currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1
-// 	}
-
-// 	// Показываем следующий слайд в зависимости от нажатой кнопки
-// 	const nextSlide = slider.querySelector(`[data-index="${nextSlideIndex}"]`)
-// 	nextSlide.classList.remove('hidden')
-// 	nextSlide.setAttribute('data-active', '')
-// }
-
-
-
-	
+	let index = 0
+	mainBtns.forEach((btn) => {
+		btn.addEventListener('click', function() {
+			mainSlidesAddingHidden('hidden')
+			if (this.dataset.mainBtnDirection == 'right') {
+				index++
+				if (index >= 3) {
+					index = 0
+				}
+				mainSlides[index].classList.remove('hidden')
+			}
+			if (this.dataset.mainBtnDirection == 'left') {
+				index--
+				if (index < 0) {
+					index = 2
+				}
+				mainSlides[index].classList.remove('hidden')
+			}
+		})
+	})
 })
 
-
-
+// Написать код для свитчеров
