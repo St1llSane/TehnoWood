@@ -1,0 +1,23 @@
+body {
+	font-family: 'HelveticaNeueCyr-Roman';
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 130%;
+	background-color: $c-default-dark;
+}
+
+.container {
+	width: 100%;
+	max-width: 1230px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.none {
+	display: none;
+}
+
+.hidden {
+	opacity: 0;
+}

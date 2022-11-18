@@ -1,0 +1,326 @@
+/* Reset and base styles  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+body {
+  margin: 0; }
+
+/* Links */
+a {
+  color: inherit; }
+
+a, a:link, a:visited {
+  text-decoration: none;
+  /* display: inline-block; */ }
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0; }
+
+ul, ul li {
+  list-style: none; }
+
+address {
+  font-style: normal; }
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent; }
+
+input::-ms-clear {
+  display: none; }
+
+button, input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer; }
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+label {
+  cursor: pointer; }
+
+legend {
+  display: block; }
+
+@font-face {
+  font-family: 'HelveticaNeueCyr-Light';
+  src: url("../fonts/HelveticaNeueCyr-Light.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300; }
+@font-face {
+  font-family: 'HelveticaNeueCyr-Roman';
+  src: url("../fonts/HelveticaNeueCyr-Roman.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400; }
+@font-face {
+  font-family: 'HelveticaNeueCyr-Medium';
+  src: url("../fonts/HelveticaNeueCyr-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500; }
+@font-face {
+  font-family: 'HelveticaNeueCyr-Bold';
+  src: url("../fonts/HelveticaNeueCyr-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700; }
+body {
+  font-family: 'HelveticaNeueCyr-Roman';
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 130%;
+  background-color: #1D1D1D; }
+
+.container {
+  width: 100%;
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto; }
+
+.none {
+  display: none; }
+
+.hidden {
+  opacity: 0; }
+
+.header {
+  padding: 17px 0;
+  background-color: #1D1D1D; }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .nav__list {
+    display: flex; }
+  .nav__list-item {
+    text-transform: uppercase;
+    position: relative;
+    transition: color .15s ease; }
+    .nav__list-item + .nav__list-item {
+      margin-left: 26px; }
+    .nav__list-item::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: #D7B56D;
+      left: 0;
+      bottom: 1px;
+      opacity: 0;
+      transition: opacity .15s ease; }
+    .nav__list-item::after {
+      position: absolute;
+      content: '';
+      width: 13px;
+      height: 13px;
+      background-image: url(../images/icons/triangle-icon.svg);
+      background-repeat: no-repeat;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -20px;
+      opacity: 0;
+      transition: bottom .2s ease, opacity .15s ease; }
+    .nav__list-item:hover {
+      color: #D7B56D; }
+    .nav__list-item:hover::before {
+      opacity: 1; }
+    .nav__list-item:hover::after {
+      opacity: 1;
+      bottom: -15px; }
+  .nav__contact {
+    color: #D7B56D; }
+  .nav__contact-phone {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative; }
+    .nav__contact-phone::before {
+      position: absolute;
+      content: '';
+      width: 16px;
+      height: 16px;
+      background-image: url(../images/icons/phone-icon.svg);
+      top: 50%;
+      transform: translateY(-50%);
+      left: -28px; }
+  .nav__contact-text {
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative; }
+    .nav__contact-text::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: #D7B56D;
+      left: 0;
+      bottom: -1px; }
+
+.main-slider {
+  height: calc(100vh - 91px);
+  background-color: rgba(255, 255, 255, 0.07);
+  position: relative; }
+  .main-slider__slides {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; }
+  .main-slider__slides-img {
+    width: 100%;
+    max-width: 1920px;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 20%;
+    position: absolute;
+    z-index: -1;
+    transition: opacity .5s linear; }
+  .main-slider__inner {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; }
+  .main-slider__content {
+    display: flex;
+    align-items: center; }
+  .main-slider__content-btn {
+    min-width: 55px;
+    min-height: 55px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    transition: background-color .2s ease, border-color .2s ease; }
+    .main-slider__content-btn:hover {
+      background-color: #D7B56D;
+      border-color: #D7B56D; }
+    .main-slider__content-btn_icon {
+      margin-top: 1px;
+      width: 16px;
+      height: 16px;
+      position: absolute; }
+      .main-slider__content-btn_icon--left {
+        top: 50%;
+        left: 49%;
+        transform: translate(-50%, -50%); }
+      .main-slider__content-btn_icon--right {
+        top: 50%;
+        left: 51%;
+        transform: translate(-50%, -50%); }
+    .main-slider__content-btn--right {
+      margin-left: auto; }
+  .main-slider__content-info {
+    max-width: 572px;
+    margin-left: 88px; }
+    .main-slider__content-info_title {
+      font-family: 'HelveticaNeueCyr-Bold';
+      font-size: 64px;
+      line-height: 120%;
+      margin-bottom: 55px; }
+    .main-slider__content-info_link {
+      color: #1D1D1D;
+      text-transform: uppercase;
+      padding: 19px 60px 18px;
+      display: inline-block;
+      position: relative;
+      z-index: 5; }
+      .main-slider__content-info_link::after, .main-slider__content-info_link::before {
+        position: absolute;
+        content: '';
+        border-radius: 2px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; }
+      .main-slider__content-info_link::after {
+        background-color: #fff;
+        z-index: -1; }
+      .main-slider__content-info_link::before {
+        border: 1px solid #D7B56D;
+        transition: transform .2s ease;
+        z-index: -2; }
+      .main-slider__content-info_link:hover::before {
+        transform: translate(7px, 7px); }
+  .main-slider__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 185px;
+    margin-bottom: 28px; }
+  .main-slider__bottom-slides {
+    display: flex; }
+    .main-slider__bottom-slides_indicator {
+      width: 45px;
+      height: 12px;
+      position: relative; }
+      .main-slider__bottom-slides_indicator::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 10px;
+        transition: background-color .2s ease; }
+      .main-slider__bottom-slides_indicator:hover::before {
+        background-color: #D7B56D; }
+      .main-slider__bottom-slides_indicator--active::before {
+        background-color: white; }
+      .main-slider__bottom-slides_indicator--active:hover::before {
+        background-color: white; }
+      .main-slider__bottom-slides_indicator + .main-slider__bottom-slides_indicator {
+        margin-left: 9px; }
+  .main-slider__bottom-btn {
+    margin-top: 40px;
+    width: 39px;
+    height: 39px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform .2s ease; }
+    .main-slider__bottom-btn:hover {
+      transform: scale(110%); }
+    .main-slider__bottom-btn::before {
+      position: absolute;
+      content: '';
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      z-index: -1;
+      transition: background-color .2s ease; }
+    .main-slider__bottom-btn svg {
+      transform: rotate(180deg);
+      margin-top: 3px; }
+
+/*# sourceMappingURL=main.css.map */
