@@ -21,3 +21,19 @@ body {
 .hidden {
 	opacity: 0;
 }
+
+.hide-modal {
+	opacity: 0;
+	z-index: -100;
+	user-select: none;
+	pointer-events: none;
+	overflow: visible;
+}
+
+.show-modal {
+	opacity: 1;
+	z-index: 100;
+	user-select: auto;
+	pointer-events: all;
+	overflow: hidden;
+}
