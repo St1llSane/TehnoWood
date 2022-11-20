@@ -1,3 +1,10 @@
 $c-white: #fff;
 $c-default-dark: #1D1D1D;
 $c-accent: #D7B56D;
+
+%deff-btn {
+	font-family: 'HelveticaNeueCyr-Roman';
+	font-size: 14px;
+	color: $c-default-dark;
+	background-color: $c-accent;
+}

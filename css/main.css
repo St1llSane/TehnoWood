@@ -218,6 +218,8 @@ body {
       background-color: #D7B56D;
       border-color: #D7B56D; }
     .main-slider__content-btn_icon {
+      pointer-events: none; }
+    .main-slider__content-btn_icon {
       margin-top: 1px;
       width: 16px;
       height: 16px;
@@ -305,9 +307,9 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    transition: transform .2s ease; }
+    animation: btnScale 2.6s linear infinite; }
     .main-slider__bottom-btn:hover {
-      transform: scale(110%); }
+      animation-play-state: paused; }
     .main-slider__bottom-btn::before {
       position: absolute;
       content: '';
@@ -322,5 +324,13 @@ body {
     .main-slider__bottom-btn svg {
       transform: rotate(180deg);
       margin-top: 3px; }
+
+@keyframes btnScale {
+  0% {
+    transform: scale(100%); }
+  50% {
+    transform: scale(112%); }
+  100% {
+    transform: scale(100%); } }
 
 /*# sourceMappingURL=main.css.map */
